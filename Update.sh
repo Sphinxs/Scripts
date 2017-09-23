@@ -1,11 +1,11 @@
-set -e
+#!/bin/bash
 
-sudo su
+set -e
 
 
 # Update The System
 
-apt update
+sudo apt update
 
 apt upgrade
 
