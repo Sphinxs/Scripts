@@ -1,13 +1,7 @@
 
-/*
+/* File.html -> <script type="text/javascript" src="Geo.js"></script> */
 
-    Allow location on your browser !
-    
-    File.html -> <script type="text/javascript" src="Geo.js"></script>
-
-*/
-
-if ( 'geolocation' in navigator ) {
+if ( "geolocation" in navigator ) {
 
     navigator.geolocation.getCurrentPosition ( function ( position ) {
             console.log ( position );
@@ -21,6 +15,6 @@ if ( 'geolocation' in navigator ) {
 
 } else {
 
-    alert ( 'Navigator not found' )
+    alert ( "Navigator not found" );
 
 }
