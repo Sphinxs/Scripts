@@ -1,5 +1,5 @@
 # Scripts
 
-¯\_(ツ)_/¯
+( ͡° ͜ʖ ͡°)
 
 My personal useful scripts
