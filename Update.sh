@@ -5,6 +5,8 @@ set -e
 
 # Update The System
 
+apt --fix-broken install
+
 sudo apt update
 
 apt upgrade
