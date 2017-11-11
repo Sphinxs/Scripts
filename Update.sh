@@ -41,6 +41,8 @@ pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
 
 npm update -g
 
+yarn upgrade
+
 
 # Clean Packages / apt install deborphan -y
 
