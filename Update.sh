@@ -2,56 +2,35 @@
 
 set -e
 
-
-# Update The System
-
-apt --fix-broken install
-
-sudo apt update
-
-apt upgrade
-
-apt dist-upgrade
-
-apt install -f
+sudo su
 
 
-# Clean Cache
+# System
 
-apt clean
+apt update && apt update –fix-missing && apt dist-upgrade && apt upgrade 
 
-apt autoclean
+apt install -f && dpkg –configure -a && apt --fix-broken install
 
-apt autoremove
-
-
-# Update Ruby Gems
-
-gem update `gem outdated | cut -d ' ' -f 1`
+apt clean && apt autoclean && apt autoremove
 
 
-# Update Modules Python
+# Gems
 
-pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
-
-pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+# gem update `gem outdated | cut -d ' ' -f 1`
 
 
-# Update Node Packages
+# Modules Python
 
-npm update -g
-
-yarn upgrade
+# pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
 
 
-# Clean Packages / apt install deborphan -y
+# Node Packages
 
-apt-get remove $(deborphan)
+# npm update -g
 
-
-# Clean Trash / apt install trash-cli
-
-sudo trash-empty
+# yarn upgrade
 
 
-clear
+# Trash-Cli
+
+# trash-empty
