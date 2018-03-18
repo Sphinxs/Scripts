@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Dependencies - Askubuntu.com/questions/840257/e-package-libpng12-0-has-no-installation-candidate-ubuntu-16-10-gnome
 
