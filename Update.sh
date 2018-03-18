@@ -1,13 +1,8 @@
 #!/bin/bash
 
-set -e
-
-sudo su
-
-
 # System
 
-apt update && apt update –fix-missing && apt dist-upgrade && apt upgrade 
+sudo apt update && apt update –fix-missing && apt dist-upgrade && apt upgrade 
 
 apt install -f && dpkg –configure -a && apt --fix-broken install
 
