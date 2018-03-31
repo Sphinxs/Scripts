@@ -1,12 +1,4 @@
 
-/*
-//
-// Python3 Server.py
-//
-// Gcc Socket.c -o Socket && ./Socket
-//
-*/
-
 # include <stdio.h>
 
 #include <string.h>

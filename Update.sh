@@ -2,9 +2,9 @@
 
 # System
 
-sudo apt update && apt update –fix-missing && apt dist-upgrade && apt upgrade 
+sudo apt update && && apt dist-upgrade
 
-apt install -f && dpkg –configure -a && apt --fix-broken install
+apt install -f
 
 apt clean && apt autoclean && apt autoremove
 

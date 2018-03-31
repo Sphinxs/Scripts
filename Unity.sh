@@ -1,20 +1,5 @@
 #!/bin/bash
 
-##########################################################################################################
-#
-# Install Unity 3D on Linux
-#
-# This script has been tested at Ubuntu Budgie 17.10, 64 bits. You can install Unity 3D by using a .deb
-# file manually, like this script, or by using a C# Script.
-#
-# Beta.unity3d.com/download/ee2fb9f9da52/public_download.html
-#
-# If you're a beginner, I recommend that you install Deepin Os and install Unity 3D with just one click
-# by using their Software Manager.
-#
-##########################################################################################################
-
-
 # Update source list
 
 sudo apt update
