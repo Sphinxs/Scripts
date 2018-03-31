@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Shut : MonoBehaviour
 {
 
@@ -25,6 +27,7 @@ public class Shut : MonoBehaviour
 
         if (transform.position.y < -4.0f || transform.position.y > 8.0f || transform.position.x < -6.0f || transform.position.x > 6.0f)
             Destroy(this.gameObject);
+
 
     }
 
@@ -48,6 +51,11 @@ public class Shut : MonoBehaviour
 
             Destroy(this.gameObject);
 
+            if(Plt.score >= 50) {
+                Plt.score = 0;
+                Plt.missed = 0;
+                SceneManager.LoadScene(3);
+            }
         }
 
     }

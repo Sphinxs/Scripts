@@ -18,6 +18,7 @@ public class Plt : MonoBehaviour
 
     void Update()
     {
+        
     }
 
     void OnGUI()

@@ -146,7 +146,6 @@ MonoBehaviour:
   currentSpeed: 5
   minSpeed: 5
   maxSpeed: 7
-  ExplosionPlayer: {fileID: 0}
 --- !u!135 &18266740
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -314,6 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPlayer: 5
   Shut: {fileID: 1511367636958596, guid: 0a7e15dfcb1da423c81e61f02b8a61f3, type: 2}
+  ExplosionPlayer: {fileID: 1375093006123618, guid: 8c9322cb52aa3414fae8297a704a01f1,
+    type: 2}
   shutDistance: 2
 --- !u!54 &94866288
 Rigidbody:
@@ -494,7 +495,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -6.11}
+  m_LocalPosition: {x: 0, y: 0.12, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -506,13 +507,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffb6e8c0644b84918bf4152ecba0c2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pt: {fileID: 0}
-  ct: {fileID: 0}
+  pt: {fileID: 94866286}
+  ct: {fileID: 282840814}
 --- !u!1 &522603136
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,8 +594,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 522603136}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1.5290153, y: 0.21486531, z: 5.763968}
+  m_LocalPosition: {x: 0, y: -1, z: 0.14}
+  m_LocalScale: {x: 3.244439, y: 0.21486531, z: 5.763968}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -669,7 +670,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1526980365}
   m_LocalRotation: {x: 0.24693123, y: -0.0033936382, z: 0.04372145, w: 0.9680403}
-  m_LocalPosition: {x: 0, y: 3.34, z: -8.15}
+  m_LocalPosition: {x: 0.21, y: 4.32, z: -18.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

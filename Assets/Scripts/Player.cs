@@ -5,12 +5,14 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Player : MonoBehaviour
 {
 
     public float speedPlayer;
 
-    public GameObject Shut;
+    public GameObject Shut, ExplosionPlayer;
 
     public float shutDistance;
 
@@ -63,10 +65,15 @@ public class Player : MonoBehaviour
 
         Plt.life -= 1;
 
+        Instantiate(ExplosionPlayer, new Vector3(transform.position.x, transform.position.y + (transform.localScale.y * shutDistance), 0.0f), Quaternion.identity);
+
         rend.enabled = false;
 
         yield return new WaitForSeconds(1.5f);
 
+        if(Plt.life <= 0)
+            SceneManager.LoadScene(2);
+        
         rend.enabled = true;
     }
 

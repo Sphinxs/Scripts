@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class Enemy : MonoBehaviour
     public float minSpeed, maxSpeed;
 
     private float x, y;
-
-    public GameObject ExplosionPlayer;
 
     void Start()
     {
@@ -35,9 +34,11 @@ public class Enemy : MonoBehaviour
             Plt.score -= 10;
 
             SetPosition();
-
         }
 
+        if(Plt.missed > 5)
+                SceneManager.LoadScene(2);
+        
     }
 
     public void SetPosition()

@@ -16,7 +16,7 @@ public class Cm : MonoBehaviour
 		ct.position = Vector3.Lerp(
 			ct.position,
 			new Vector3(pt.position.x, ct.position.y, ct.position.z),
-			3f
+			5f
 		);
     }
 	
