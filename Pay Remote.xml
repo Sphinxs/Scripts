@@ -1,0 +1,348 @@
+<?xmp version="1.0" encoding="UTF-8" standalone="yes"?>
+<TaskModel xmlns:coop="http://giove.isti.cnr.it/cttcoop" xmlns="http://giove.isti.cnr.it/ctt" NameTaskModelID="Pay Remote">
+    <Task Identifier="Pay Remote" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <SubTask>
+            <Task Identifier="Registrar conta" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Disabling"/>
+                <Parent name="Pay Remote"/>
+                <SiblingRight name="Autenticar conta"/>
+                <SubTask>
+                    <Task Identifier="Informar nome, e-mail, senha, cpf, rg e dados bancários" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Disabling"/>
+                        <Parent name="Registrar conta"/>
+                        <SiblingRight name="Validar dados de cadastro"/>
+                    </Task>
+                    <Task Identifier="Validar dados de cadastro" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Type>None</Type>
+                        <Parent name="Registrar conta"/>
+                        <SiblingLeft name="Informar nome, e-mail, senha, cpf, rg e dados bancários"/>
+                        <SubTask>
+                            <Task Identifier="Informar erro de cadastro" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Choice"/>
+<Parent name="Validar dados de cadastro"/>
+<SiblingRight name="Redirecionar para autenticar"/>
+                            </Task>
+                            <Task Identifier="Redirecionar para autenticar" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Validar dados de cadastro"/>
+<SiblingLeft name="Informar erro de cadastro"/>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Autenticar conta" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Disabling"/>
+                <Parent name="Pay Remote"/>
+                <SiblingLeft name="Registrar conta"/>
+                <SiblingRight name="Deletar conta"/>
+                <SubTask>
+                    <Task Identifier="Informar e-mail e senha" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Disabling"/>
+                        <Parent name="Autenticar conta"/>
+                        <SiblingRight name="Validar dados de auteticação"/>
+                    </Task>
+                    <Task Identifier="Validar dados de auteticação" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Type>None</Type>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Autenticar conta"/>
+                        <SiblingLeft name="Informar e-mail e senha"/>
+                        <SiblingRight name="Resetar senha"/>
+                        <SubTask>
+                            <Task Identifier="Informar erro de auteticação" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Choice"/>
+<Parent name="Validar dados de auteticação"/>
+<SiblingRight name="Adicionar conta no cookie"/>
+                            </Task>
+                            <Task Identifier="Adicionar conta no cookie" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Disabling"/>
+<Parent name="Validar dados de auteticação"/>
+<SiblingLeft name="Informar erro de auteticação"/>
+<SiblingRight name="Redirecionar para dashboard"/>
+                            </Task>
+                            <Task Identifier="Redirecionar para dashboard" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Validar dados de auteticação"/>
+<SiblingLeft name="Adicionar conta no cookie"/>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                    <Task Identifier="Resetar senha" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Autenticar conta"/>
+                        <SiblingLeft name="Validar dados de auteticação"/>
+                        <SubTask>
+                            <Task Identifier="Informar e-mail para resetar senha" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Disabling"/>
+<Parent name="Resetar senha"/>
+<SiblingRight name="Validar dados de resete"/>
+                            </Task>
+                            <Task Identifier="Validar dados de resete" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Resetar senha"/>
+<SiblingLeft name="Informar e-mail para resetar senha"/>
+<SubTask>
+    <Task Identifier="Informar erro de resete" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <TemporalOperator name="Choice"/>
+        <Parent name="Validar dados de resete"/>
+        <SiblingRight name="Enviar e-mail para resetar senha"/>
+    </Task>
+    <Task Identifier="Enviar e-mail para resetar senha" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <Parent name="Validar dados de resete"/>
+        <SiblingLeft name="Informar erro de resete"/>
+    </Task>
+</SubTask>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Deletar conta" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Parallel"/>
+                <Parent name="Pay Remote"/>
+                <SiblingLeft name="Autenticar conta"/>
+                <SiblingRight name="Deslogar da pataforma"/>
+                <SubTask>
+                    <Task Identifier="Selecionar a remoção da conta" Category="user" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Type>None</Type>
+                        <TemporalOperator name="Disabling"/>
+                        <Parent name="Deletar conta"/>
+                        <SiblingRight name="Remover a conta"/>
+                    </Task>
+                    <Task Identifier="Remover a conta" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Deletar conta"/>
+                        <SiblingLeft name="Selecionar a remoção da conta"/>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Deslogar da pataforma" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Disabling"/>
+                <Parent name="Pay Remote"/>
+                <SiblingLeft name="Deletar conta"/>
+                <SiblingRight name="Gerenciar transações"/>
+                <SubTask>
+                    <Task Identifier="Selecionar a remoção da sessão" Category="user" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Disabling"/>
+                        <Parent name="Deslogar da pataforma"/>
+                        <SiblingRight name="Limpar sessão"/>
+                    </Task>
+                    <Task Identifier="Limpar sessão" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Deslogar da pataforma"/>
+                        <SiblingLeft name="Selecionar a remoção da sessão"/>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Gerenciar transações" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Choice"/>
+                <Parent name="Pay Remote"/>
+                <SiblingLeft name="Deslogar da pataforma"/>
+                <SiblingRight name="Rede social"/>
+                <SubTask>
+                    <Task Identifier="Enviar dinheiro" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Gerenciar transações"/>
+                        <SiblingRight name="Receber dinheiro"/>
+                        <SubTask>
+                            <Task Identifier="Envio através de código" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Choice"/>
+<Parent name="Enviar dinheiro"/>
+<SiblingRight name="Envio através de contato"/>
+<SubTask>
+    <Task Identifier="Informar código" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <TemporalOperator name="Disabling"/>
+        <Parent name="Envio através de código"/>
+        <SiblingRight name="Validar código"/>
+    </Task>
+    <Task Identifier="Validar código" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <Parent name="Envio através de código"/>
+        <SiblingLeft name="Informar código"/>
+        <SubTask>
+            <Task Identifier="Informar código inválido" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Choice"/>
+                <Parent name="Validar código"/>
+                <SiblingRight name="Confirmar envio por código"/>
+            </Task>
+            <Task Identifier="Confirmar envio por código" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <Parent name="Validar código"/>
+                <SiblingLeft name="Informar código inválido"/>
+                <SubTask>
+                    <Task Identifier="Envia e-mail de confirmação da transação via código" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Parallel"/>
+                        <Parent name="Confirmar envio por código"/>
+                        <SiblingRight name="Revocar código a partir de 10 minutos"/>
+                    </Task>
+                    <Task Identifier="Revocar código a partir de 10 minutos" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Confirmar envio por código"/>
+                        <SiblingLeft name="Envia e-mail de confirmação da transação via código"/>
+                        <SiblingRight name="Realizar transação por código"/>
+                    </Task>
+                    <Task Identifier="Realizar transação por código" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Confirmar envio por código"/>
+                        <SiblingLeft name="Revocar código a partir de 10 minutos"/>
+                    </Task>
+                </SubTask>
+            </Task>
+        </SubTask>
+    </Task>
+</SubTask>
+                            </Task>
+                            <Task Identifier="Envio através de contato" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Enviar dinheiro"/>
+<SiblingLeft name="Envio através de código"/>
+<SubTask>
+    <Task Identifier="Selecionar contato" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <TemporalOperator name="Disabling"/>
+        <Parent name="Envio através de contato"/>
+        <SiblingRight name="Validar contato"/>
+    </Task>
+    <Task Identifier="Validar contato" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <Parent name="Envio através de contato"/>
+        <SiblingLeft name="Selecionar contato"/>
+        <SubTask>
+            <Task Identifier="Informar contato inválido" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Disabling"/>
+                <Parent name="Validar contato"/>
+                <SiblingRight name="Confirmar envio por contato"/>
+            </Task>
+            <Task Identifier="Confirmar envio por contato" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <Parent name="Validar contato"/>
+                <SiblingLeft name="Informar contato inválido"/>
+                <SubTask>
+                    <Task Identifier="Envia e-mail de confirmação da transação via contato" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Parallel"/>
+                        <Parent name="Confirmar envio por contato"/>
+                        <SiblingRight name="Revocar transação a partir de 10 minutos"/>
+                    </Task>
+                    <Task Identifier="Revocar transação a partir de 10 minutos" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Confirmar envio por contato"/>
+                        <SiblingLeft name="Envia e-mail de confirmação da transação via contato"/>
+                        <SiblingRight name="Realizar transação por contato"/>
+                    </Task>
+                    <Task Identifier="Realizar transação por contato" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Confirmar envio por contato"/>
+                        <SiblingLeft name="Revocar transação a partir de 10 minutos"/>
+                    </Task>
+                </SubTask>
+            </Task>
+        </SubTask>
+    </Task>
+</SubTask>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                    <Task Identifier="Receber dinheiro" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Type>None</Type>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Gerenciar transações"/>
+                        <SiblingLeft name="Enviar dinheiro"/>
+                        <SiblingRight name="Metadados das transações"/>
+                        <SubTask>
+                            <Task Identifier="Obter código" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Choice"/>
+<Parent name="Receber dinheiro"/>
+<SiblingRight name="Inválidar código"/>
+                            </Task>
+                            <Task Identifier="Inválidar código" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Type>None</Type>
+<Parent name="Receber dinheiro"/>
+<SiblingLeft name="Obter código"/>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                    <Task Identifier="Metadados das transações" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Type>None</Type>
+                        <Parent name="Gerenciar transações"/>
+                        <SiblingLeft name="Receber dinheiro"/>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Rede social" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <Parent name="Pay Remote"/>
+                <SiblingLeft name="Gerenciar transações"/>
+                <SubTask>
+                    <Task Identifier="Adicionar contato" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Choice"/>
+                        <Parent name="Rede social"/>
+                        <SiblingRight name="Remover Contato"/>
+                        <SubTask>
+                            <Task Identifier="Informar e-mail" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Disabling"/>
+<Parent name="Adicionar contato"/>
+<SiblingRight name="Fazer relação"/>
+                            </Task>
+                            <Task Identifier="Fazer relação" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Adicionar contato"/>
+<SiblingLeft name="Informar e-mail"/>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                    <Task Identifier="Remover Contato" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Rede social"/>
+                        <SiblingLeft name="Adicionar contato"/>
+                        <SubTask>
+                            <Task Identifier="Selecionar e-mail" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Disabling"/>
+<Parent name="Remover Contato"/>
+<SiblingRight name="Desfazer relação"/>
+                            </Task>
+                            <Task Identifier="Desfazer relação" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Remover Contato"/>
+<SiblingLeft name="Selecionar e-mail"/>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                </SubTask>
+            </Task>
+        </SubTask>
+    </Task>
+</TaskModel>
