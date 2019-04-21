@@ -1,34 +1,29 @@
 #!/bin/bash
 
 # System
-sudo apt update
+sudo apt update && apt full-upgrade
 
-sudo apt full-upgrade  # -y
+sudo apt autoclean && apt autoremove
 
-apt install -f
+snap refresh
 
-apt clean && apt autoclean && apt autoremove
-
+flatpak update
 
 # Ruby
 gem update `gem outdated | cut -d ' ' -f 1`
-
 
 # Python
 pip install --upgrade pip
 
 pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
 
-
 # Javascript
 npm update -g
 
 yarn upgrade
 
-
 # Trash
 trash-empty
-
 
 # Dependencies
 sudo deborphan | xargs sudo apt-get -y remove --purge
